@@ -65,6 +65,7 @@
       v-loading="listLoading"
       :key="tableKey"
       :data="list"
+      :height="tableHeight"
       border
       fit
       highlight-current-row
@@ -162,7 +163,7 @@ import adminForm from './admin/form'
 import openWindow from '@/utils/openWindow'
 
 export default {
-  name: 'Admin',
+  name: 'manageAdmin',
   components: { adminForm },
   directives: {
     waves
@@ -178,6 +179,7 @@ export default {
   },
   data() {
     return {
+      tableHeight: window.innerHeight - 250,
       tableKey: 0,
       list: null,
       total: null,

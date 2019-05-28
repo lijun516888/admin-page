@@ -107,7 +107,7 @@ import { pickerOptions, getArrByKey } from '@/utils'
 import rolesForm from './roles/form'
 
 export default {
-  name: 'Roles',
+  name: 'manageRole',
   components: { rolesForm },
   directives: {
     waves

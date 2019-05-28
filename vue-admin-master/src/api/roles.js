@@ -2,7 +2,8 @@ import request from '@/utils/request'
 
 export function getList(query) {
   return request({
-    url: '/admin/roles/index',
+    // url: '/admin/roles/index',
+    url: '/mobile/role.data',
     method: 'post',
     data: query
   })

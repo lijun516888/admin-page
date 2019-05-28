@@ -14,8 +14,11 @@ export default {
 
   // api请求基础路径,注意和代理配合使用
   baseUrl: {
-    dev: '',
-    pro: 'http://api.hardphp.com/index.php'
+    // dev: 'http://api.hardphp.com/index.php',
+    // pro: 'http://api.hardphp.com/index.php'
+
+    dev: 'http://127.0.0.1:8085',
+    pro: 'http://127.0.0.1:8085'
   },
 
   // 上传路径
