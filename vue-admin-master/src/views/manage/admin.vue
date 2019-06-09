@@ -62,6 +62,7 @@
 
     <!-- 表格 -->
     <el-table
+      ref="table"
       v-loading="listLoading"
       :key="tableKey"
       :data="list"
@@ -211,6 +212,22 @@ export default {
   },
   created() {
     this.fetchList()
+  },
+  mounted:function(){
+    //此处需要通过延迟方法来设置值，不然会出现值已更新，但页面没更新的问题
+    //this.$refs.table.$el.offsetTop：表格距离浏览器的高度
+    /*setTimeout(() => {
+        this.tableHeight = window.innerHeight - this.$refs.table.$el.offsetTop - 50;
+    },100)*/
+    this.$nextTick(function () {
+        // 监听窗口大小变化
+        let self = this;
+        window.onresize = function() {
+            setTimeout(() => {
+                self.tableHeight = window.innerHeight - 250
+            },100)
+        }
+    })
   },
   methods: {
     fetchList() {
