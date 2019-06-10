@@ -180,7 +180,7 @@ export default {
   },
   data() {
     return {
-      tableHeight: window.innerHeight - 250,
+      tableHeight: window.innerHeight - 240,
       tableKey: 0,
       list: null,
       total: null,
@@ -208,6 +208,13 @@ export default {
     dateTime: function(val) {
       this.listQuery.startTime = val[0]
       this.listQuery.endTime = val[1]
+    },
+    showSearch: function(val) {
+      if(val) {
+        this.tableHeight = this.tableHeight - 55
+      } else {
+        this.tableHeight = this.tableHeight + 55
+      }
     }
   },
   created() {
@@ -224,7 +231,7 @@ export default {
         let self = this;
         window.onresize = function() {
             setTimeout(() => {
-                self.tableHeight = window.innerHeight - 250
+                self.tableHeight = window.innerHeight - self.$refs.table.$el.offsetTop - 170
             },100)
         }
     })
